@@ -7,8 +7,12 @@ Quickstart
 ----------
 
 	// Connect to the Saplo-API
-	var client = new SaploManager("API_KEY", "SECRET_KEY");
-	
+	SaploManager client = new SaploManager("API_KEY", "SECRET_KEY");
+
+	// Connect to the Saplo-API using a proxy
+	IWebProxy proxy = new WebProxy("host:port", true, new string[0], new NetworkCredential("username", "password"));
+	SaploManager client = new SaploManager("API_KEY", "SECRET_KEY", proxy);
+
 	// Create a new collection and store it in the API
 	Collection myCollection = client.Collections.Create("My Collection Name", "en", "A description of this collection");
 	

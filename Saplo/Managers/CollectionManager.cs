@@ -1,4 +1,5 @@
-﻿using Saplo.Core;
+﻿using System.Net;
+using Saplo.Core;
 using Saplo.Core.Requests;
 using Saplo.Core.Responses;
 
@@ -10,7 +11,12 @@ namespace Saplo.Managers
 	public class CollectionManager : SectionManagerBase
 	{
 		public CollectionManager(PerformAuthentication authenticationDelegate)
-			: base(authenticationDelegate)
+			: this(authenticationDelegate, null)
+		{
+		}
+
+		public CollectionManager(PerformAuthentication authenticationDelegate, IWebProxy proxy)
+			: base(authenticationDelegate, proxy)
 		{
 		}
 

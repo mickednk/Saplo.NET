@@ -9,10 +9,22 @@ using Saplo.Parsers;
 namespace Saplo.Managers
 {
 	/// <summary>
-	/// Base class used by all manager classes and implements methods for serialize/deserialize, query Saplo and validate response messages.
+	///   Base class used by all manager classes and implements methods for serialize/deserialize, query Saplo and validate response messages.
 	/// </summary>
 	public class ManagerBase
 	{
+		private readonly IWebProxy _proxy;
+
+		protected ManagerBase()
+		{
+		}
+
+		protected ManagerBase(IWebProxy proxy)
+			: this()
+		{
+			_proxy = proxy;
+		}
+
 		/// <summary>
 		///   Deserialize the json string into supplied type.
 		/// </summary>
@@ -48,6 +60,10 @@ namespace Saplo.Managers
 			request.Method = "POST";
 			request.ContentType = "application/json";
 			request.ContentLength = messageBuffer.Length;
+
+			//add proxy if specified.
+			if (_proxy != null)
+				request.Proxy = _proxy;
 
 			using (var requestStream = request.GetRequestStream())
 			{

@@ -1,4 +1,5 @@
-﻿using Saplo.Core;
+﻿using System.Net;
+using Saplo.Core;
 using Saplo.Core.Requests;
 using Saplo.Core.Responses;
 
@@ -11,6 +12,11 @@ namespace Saplo.Managers
 	{
 		public GroupManager(PerformAuthentication authenticateDelegate)
 			: base(authenticateDelegate)
+		{
+		}
+
+		public GroupManager(PerformAuthentication authenticateDelegate, IWebProxy proxy)
+			: base(authenticateDelegate, proxy)
 		{
 		}
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using Saplo.Core;
 using Saplo.Core.Requests;
 using Saplo.Core.Responses;
@@ -26,7 +27,22 @@ namespace Saplo
 		/// </summary>
 		private readonly TimeSpan TokenRefreshInterval = new TimeSpan(0, 30, 0);
 
-		public SaploManager(string apikey, string secretkey)
+		/// <summary>
+		/// Creates new instance of SaploManager.
+		/// </summary>
+		/// <param name="apikey">public api key</param>
+		/// <param name="secretkey">secret api key</param>
+		public SaploManager(string apikey, string secretkey) : this(apikey, secretkey, null)
+		{
+		}
+
+		/// <summary>
+		/// Creates new instance of SaploManager.
+		/// </summary>
+		/// <param name="apikey">public api key</param>
+		/// <param name="secretkey">secret api key</param>
+		/// <param name="proxy">proxy to use when communicating with the api</param>
+		public SaploManager(string apikey, string secretkey, IWebProxy proxy) : base(proxy)
 		{
 			ApiKey = apikey;
 			SecretKey = secretkey;
@@ -34,9 +50,9 @@ namespace Saplo
 			AuthenticateIfNeeded();
 
 			//init managers.
-			Collections = new CollectionManager(AuthenticateIfNeeded);
-			Groups = new GroupManager(AuthenticateIfNeeded);
-			Texts = new TextManager(AuthenticateIfNeeded);
+			Collections = new CollectionManager(AuthenticateIfNeeded, proxy);
+			Groups = new GroupManager(AuthenticateIfNeeded, proxy);
+			Texts = new TextManager(AuthenticateIfNeeded, proxy);
 		}
 
 		public CollectionManager Collections { get; set; }

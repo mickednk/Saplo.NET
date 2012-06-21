@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using Saplo.Core;
 using Saplo.Core.Requests;
 using Saplo.Core.Responses;
@@ -11,7 +12,12 @@ namespace Saplo.Managers
 	public class TextManager : SectionManagerBase
 	{
 		public TextManager(PerformAuthentication authenticateDelegate)
-			: base(authenticateDelegate)
+			: base(authenticateDelegate, null)
+		{
+		}
+
+		public TextManager(PerformAuthentication authenticateDelegate, IWebProxy proxy)
+			: base(authenticateDelegate, proxy)
 		{
 		}
 

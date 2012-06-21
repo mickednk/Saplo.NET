@@ -1,4 +1,6 @@
-﻿namespace Saplo.Managers
+﻿using System.Net;
+
+namespace Saplo.Managers
 {
 	/// <summary>
 	///   Delegate used to get accesstoken from top manager.
@@ -7,7 +9,7 @@
 	public delegate string PerformAuthentication();
 
 	/// <summary>
-	/// Base class used by managers that need help with authentication.
+	///   Base class used by managers that need help with authentication.
 	/// </summary>
 	public class SectionManagerBase : ManagerBase
 	{
@@ -16,7 +18,11 @@
 		/// </summary>
 		protected PerformAuthentication authenticate;
 
-		public SectionManagerBase(PerformAuthentication authenticateDelegate)
+		public SectionManagerBase(PerformAuthentication authenticateDelegate) : this(authenticateDelegate, null)
+		{
+		}
+
+		public SectionManagerBase(PerformAuthentication authenticateDelegate, IWebProxy proxy) : base(proxy)
 		{
 			authenticate = authenticateDelegate;
 		}
