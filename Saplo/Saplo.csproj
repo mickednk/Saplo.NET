@@ -53,7 +53,7 @@
     <Compile Include="Core\Enums.cs" />
     <Compile Include="Core\Exceptions\SaploException.cs" />
     <Compile Include="Core\Group.cs" />
-    <Compile Include="Core\GroupTexts.cs" />
+    <Compile Include="Core\GroupText.cs" />
     <Compile Include="Core\RelatedGroup.cs" />
     <Compile Include="Core\RelatedText.cs" />
     <Compile Include="Core\Requests\AddTagRequest.cs" />
@@ -66,7 +66,7 @@
     <Compile Include="Core\Requests\GroupRelatedGroupsRequest.cs" />
     <Compile Include="Core\Requests\GroupRelatedTextsRequest.cs" />
     <Compile Include="Core\Requests\GroupRequest.cs" />
-    <Compile Include="Core\Requests\GroupTextsCreateRequest.cs" />
+    <Compile Include="Core\Requests\GroupTextCreateRequest.cs" />
     <Compile Include="Core\Requests\RelatedTextBase.cs" />
     <Compile Include="Core\Requests\RequestBase.cs" />
     <Compile Include="Core\Requests\TagRequest.cs" />

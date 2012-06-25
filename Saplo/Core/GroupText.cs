@@ -3,7 +3,7 @@
 namespace Saplo.Core
 {
     [DataContract]
-    public class GroupTexts
+    public class GroupText
     {
         [DataMember(Name = "collection_id")]
         public int CollectionID { get; set; }

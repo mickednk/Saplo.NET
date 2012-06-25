@@ -6,6 +6,6 @@ namespace Saplo.Core.Responses
     public class GroupTextsResponse
     {
         [DataMember(Name = "texts")]
-        public GroupTexts[] Texts { get; set; }
+        public GroupText[] Texts { get; set; }
     }
 }

@@ -29,10 +29,10 @@ namespace Saplo.Managers
 		/// <returns> </returns>
 		public bool AddText(int groupId, int collectionId, int textId)
 		{
-			var reqObj = new RequestBase<GroupTextsCreateRequest>
+			var reqObj = new RequestBase<GroupTextCreateRequest>
 			             {
 			             	Method = "group.addTexts",
-			             	Parameters = new GroupTextsCreateRequest
+			             	Parameters = new GroupTextCreateRequest
 			             	             {
 			             	             	CollectionID = collectionId,
 			             	             	GroupID = groupId,
@@ -94,10 +94,10 @@ namespace Saplo.Managers
 		/// <returns> </returns>
 		public bool DeleteText(int groupId, int collectionId, int textId)
 		{
-			var reqObj = new RequestBase<GroupTextsCreateRequest>
+			var reqObj = new RequestBase<GroupTextCreateRequest>
 			             {
 			             	Method = "group.deleteText",
-			             	Parameters = new GroupTextsCreateRequest
+			             	Parameters = new GroupTextCreateRequest
 			             	             {
 			             	             	CollectionID = collectionId,
 			             	             	GroupID = groupId,
@@ -142,7 +142,7 @@ namespace Saplo.Managers
 		/// </summary>
 		/// <param name="groupId"> id of group </param>
 		/// <returns> </returns>
-		public GroupTexts[] ListTexts(int groupId)
+		public GroupText[] ListTexts(int groupId)
 		{
 			var reqObj = new RequestBase<GroupRequest>
 			             {
