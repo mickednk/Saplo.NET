@@ -3,7 +3,7 @@
 namespace Saplo.Core.Responses
 {
     [DataContract]
-    public class SuccessResponse
+    internal class SuccessResponse
     {
         [DataMember(Name = "success")]
         public bool Success { get; set; }

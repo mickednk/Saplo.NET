@@ -3,7 +3,7 @@
 namespace Saplo.Core.Responses
 {
     [DataContract]
-    public class AuthenticateResponse
+    internal class AuthenticateResponse
     {
         [DataMember(Name = "access_token")]
         public string AccessToken { get; set; }

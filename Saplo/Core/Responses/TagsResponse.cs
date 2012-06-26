@@ -3,7 +3,7 @@
 namespace Saplo.Core.Responses
 {
     [DataContract]
-    public class TagsResponse
+    internal class TagsResponse
     {
         [DataMember(Name = "tags")]
         public Tag[] Tags { get; set; }

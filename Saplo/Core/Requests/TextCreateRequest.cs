@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Saplo.Core.Requests
 {
 	[DataContract]
-	public class TextCreateRequest
+	internal class TextCreateRequest
 	{
 		[DataMember(Name = "collection_id")]
 		public int CollectionID { get; set; }

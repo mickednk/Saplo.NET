@@ -6,7 +6,7 @@ namespace Saplo.Core.Requests
     ///   Parameter container for authentication request.
     /// </summary>
     [DataContract]
-    public class AuthenicateRequest
+    internal class AuthenicateRequest
     {
         [DataMember(Name = "api_key", IsRequired = true)]
         public string APIKey { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Saplo.Core.Requests
 {
-	public class DeleteTagRequest
+	internal class DeleteTagRequest
 	{
 		[DataMember(Name = "tag")]
 		public string Tag { get; set; }

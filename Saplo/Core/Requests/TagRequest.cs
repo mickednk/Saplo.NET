@@ -3,7 +3,7 @@
 namespace Saplo.Core.Requests
 {
     [DataContract]
-    public class TagRequest
+    internal class TagRequest
     {
         [DataMember(Name = "collection_id")]
         public int CollectionID { get; set; }

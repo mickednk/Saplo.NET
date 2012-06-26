@@ -3,7 +3,7 @@
 namespace Saplo.Core.Requests
 {
     [DataContract]
-    public class RelatedTextBase
+    internal class RelatedTextBase
     {
         [DataMember(Name = "collection_scope", EmitDefaultValue = false)]
         public int[] CollectionScope { get; set; }

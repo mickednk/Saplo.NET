@@ -3,7 +3,7 @@
 namespace Saplo.Core.Requests
 {
     [DataContract]
-    public class CollectionCreateRequest
+    internal class CollectionCreateRequest
     {
         [DataMember(Name = "name")]
         public string Name { get; set; }

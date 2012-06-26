@@ -9,7 +9,7 @@ namespace Saplo.Core.Requests
 	/// </summary>
 	/// <typeparam name="T"> Parameter class to use for request </typeparam>
 	[DataContract]
-	public class RequestBase<T>
+	internal class RequestBase<T>
 	{
 		public RequestBase()
 		{

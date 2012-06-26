@@ -3,7 +3,7 @@
 namespace Saplo.Core.Requests
 {
     [DataContract]
-    public class TextRelatedGroupsRequest
+    internal class TextRelatedGroupsRequest
     {
         [DataMember(Name = "collection_id")]
         public int CollectionID { get; set; }

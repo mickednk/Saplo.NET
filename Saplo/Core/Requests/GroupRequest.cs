@@ -3,7 +3,7 @@
 namespace Saplo.Core.Requests
 {
     [DataContract]
-    public class GroupRequest
+    internal class GroupRequest
     {
         [DataMember(Name = "group_id")]
         public int GroupID { get; set; }
