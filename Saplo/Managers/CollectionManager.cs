@@ -2,13 +2,14 @@
 using Saplo.Core;
 using Saplo.Core.Requests;
 using Saplo.Core.Responses;
+using Saplo.EventArgs;
 
 namespace Saplo.Managers
 {
 	/// <summary>
 	/// Manager class used to manipulate collections.
 	/// </summary>
-	public class CollectionManager : SectionManagerBase
+	public partial class CollectionManager : SectionManagerBase
 	{
 		public CollectionManager(PerformAuthentication authenticationDelegate)
 			: this(authenticationDelegate, null)

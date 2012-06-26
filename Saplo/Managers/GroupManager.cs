@@ -8,7 +8,7 @@ namespace Saplo.Managers
 	/// <summary>
 	///   Manager class used for various operation related to groups.
 	/// </summary>
-	public class GroupManager : SectionManagerBase
+	public partial class GroupManager : SectionManagerBase
 	{
 		public GroupManager(PerformAuthentication authenticateDelegate)
 			: base(authenticateDelegate)

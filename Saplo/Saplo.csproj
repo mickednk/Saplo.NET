@@ -87,10 +87,27 @@
     <Compile Include="Core\Responses\TagsResponse.cs" />
     <Compile Include="Core\Tag.cs" />
     <Compile Include="Core\Text.cs" />
+    <Compile Include="EventArgs\AuthenticateCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\CollectionCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\CollectionsCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\CustomAsyncCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\GetAccountCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\GroupCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\GroupsCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\ListTextsCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\RelatedGroupsCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\RelatedTextCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\TagCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\TagsCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\TextCompletedEventArgs.cs" />
+    <Compile Include="Managers\CollectionManager.Async.cs" />
     <Compile Include="Managers\CollectionManager.cs" />
+    <Compile Include="Managers\GroupManager.Async.cs" />
     <Compile Include="Managers\GroupManager.cs" />
     <Compile Include="Managers\ManagerBase.cs" />
     <Compile Include="Managers\SectionManagerBase.cs" />
+    <Compile Include="EventArgs\SuccessMethodCompletedEventArgs.cs" />
+    <Compile Include="Managers\TextManager.Async.cs" />
     <Compile Include="Managers\TextManager.cs" />
     <Compile Include="Parsers\EnumSurrogateSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Compile Include="SaploManager.Async.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

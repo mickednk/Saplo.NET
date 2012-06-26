@@ -10,7 +10,7 @@ namespace Saplo
 	/// <summary>
 	///   Manager used to execute operations against Saplo´s API.
 	/// </summary>
-	public class SaploManager : ManagerBase
+	public partial class SaploManager : ManagerBase
 	{
 		/// <summary>
 		///   API key used to authenticate request.
@@ -28,20 +28,20 @@ namespace Saplo
 		private readonly TimeSpan TokenRefreshInterval = new TimeSpan(0, 30, 0);
 
 		/// <summary>
-		/// Creates new instance of SaploManager.
+		///   Creates new instance of SaploManager.
 		/// </summary>
-		/// <param name="apikey">public api key</param>
-		/// <param name="secretkey">secret api key</param>
+		/// <param name="apikey"> public api key </param>
+		/// <param name="secretkey"> secret api key </param>
 		public SaploManager(string apikey, string secretkey) : this(apikey, secretkey, null)
 		{
 		}
 
 		/// <summary>
-		/// Creates new instance of SaploManager.
+		///   Creates new instance of SaploManager.
 		/// </summary>
-		/// <param name="apikey">public api key</param>
-		/// <param name="secretkey">secret api key</param>
-		/// <param name="proxy">proxy to use when communicating with the api</param>
+		/// <param name="apikey"> public api key </param>
+		/// <param name="secretkey"> secret api key </param>
+		/// <param name="proxy"> proxy to use when communicating with the api </param>
 		public SaploManager(string apikey, string secretkey, IWebProxy proxy) : base(proxy)
 		{
 			ApiKey = apikey;
@@ -51,7 +51,7 @@ namespace Saplo
 
 			//init managers.
 			Collections = new CollectionManager(AuthenticateIfNeeded, proxy);
-			Groups = new GroupManager(AuthenticateIfNeeded, proxy);
+			Groups = new GroupManager(AuthenticateIfNeeded);
 			Texts = new TextManager(AuthenticateIfNeeded, proxy);
 		}
 
@@ -92,6 +92,10 @@ namespace Saplo
 			return ValidateResult(response) ? response.Result.AccessToken : null;
 		}
 
+		/// <summary>
+		///   Returns account information for authenticated account.
+		/// </summary>
+		/// <returns> </returns>
 		public Account GetAccount()
 		{
 			var reqObj = new RequestBase<object>("account.get", new object());

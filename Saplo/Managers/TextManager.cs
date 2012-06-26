@@ -9,7 +9,7 @@ namespace Saplo.Managers
 	/// <summary>
 	///   Manager to manage text entities.
 	/// </summary>
-	public class TextManager : SectionManagerBase
+	public partial class TextManager : SectionManagerBase
 	{
 		public TextManager(PerformAuthentication authenticateDelegate)
 			: base(authenticateDelegate, null)
