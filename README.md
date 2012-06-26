@@ -18,10 +18,7 @@ Quickstart
 	
 	// After a collection is successfully created, it is populated with an ID 
 	int collectionId = myCollection.CollectionID;
-	
-	//// Create a manager to handle Text
-	//SaploTextManager textMgr = new SaploTextManager(client);
-	
+		
 	// Create and save new Text
 	Text myText = client.Texts.Create(collectionId, "Body of My Text, but more meaningful");
 	
@@ -38,3 +35,5 @@ Quickstart
 	}
 
 For the rest of the API methods and examples, refer to http://developer.saplo.com/
+
+For information on implementing the async methods see http://msdn.microsoft.com/en-us/library/awb8dkht.aspx
