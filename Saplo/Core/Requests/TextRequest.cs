@@ -11,7 +11,7 @@ namespace Saplo.Core.Requests
         [DataMember(Name = "text_id")]
         public int TextID { get; set; }
 
-        [DataMember(Name = "ext_text_id")]
+        [DataMember(Name = "ext_text_id", EmitDefaultValue = false)]
         public string ExternalTextID { get; set; }
     }
 }

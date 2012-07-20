@@ -110,7 +110,7 @@ namespace Saplo.Managers
 		{
 			var reqObj = new RequestBase<DeleteTagRequest>
 			             {
-			             	Method = "deleteTag",
+			             	Method = "text.deleteTag",
 			             	Parameters = new DeleteTagRequest
 			             	             {
 			             	             	Tag = tag,
@@ -138,6 +138,27 @@ namespace Saplo.Managers
 			             	             	TextID = textId
 			             	             }
 			             };
+
+			return CallSaploApi<Text>(reqObj);
+		}
+
+		/// <summary>
+		///   Fetches text entity.
+		/// </summary>
+		/// <param name="collectionId"> id of collection </param>
+		/// <param name="externalTextId">external id of text entity </param>
+		/// <returns> </returns>
+		public Text Get(int collectionId, string externalTextId)
+		{
+			var reqObj = new RequestBase<TextRequest>
+			{
+				Method = "text.get",
+				Parameters = new TextRequest
+				{
+					CollectionID = collectionId,
+					ExternalTextID = externalTextId
+				}
+			};
 
 			return CallSaploApi<Text>(reqObj);
 		}

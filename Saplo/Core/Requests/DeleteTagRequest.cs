@@ -2,6 +2,7 @@
 
 namespace Saplo.Core.Requests
 {
+	[DataContract]
 	internal class DeleteTagRequest
 	{
 		[DataMember(Name = "tag")]

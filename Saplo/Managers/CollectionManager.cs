@@ -121,8 +121,8 @@ namespace Saplo.Managers
 			             	Method = "collection.update",
 			             	Parameters = new CollectionCreateRequest
 			             	             {
+			             	             	CollectionID = collection.CollectionID,
 			             	             	Name = collection.Name,
-			             	             	Language = collection.Name,
 			             	             	Description = collection.Description
 			             	             }
 			             };

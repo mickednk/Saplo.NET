@@ -18,4 +18,10 @@ namespace Saplo.Core
 		[EnumMember(Value = "unknown")] Unknown,
 		[EnumMember(Value = "url")] URL
 	}
+
+	public enum TextLanguage
+	{
+		[EnumMember(Value = "en")] English,
+		[EnumMember(Value = "sv")] Swedish
+	};
 }

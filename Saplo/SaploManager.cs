@@ -44,6 +44,11 @@ namespace Saplo
 		/// <param name="proxy"> proxy to use when communicating with the api </param>
 		public SaploManager(string apikey, string secretkey, IWebProxy proxy) : base(proxy)
 		{
+			if (apikey == null)
+				throw new ArgumentNullException("apikey");
+			if (secretkey == null)
+				throw new ArgumentNullException("secretkey");
+
 			ApiKey = apikey;
 			SecretKey = secretkey;
 
