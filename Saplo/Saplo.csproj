@@ -67,6 +67,7 @@
     <Compile Include="Core\Requests\GroupRelatedTextsRequest.cs" />
     <Compile Include="Core\Requests\GroupRequest.cs" />
     <Compile Include="Core\Requests\GroupTextCreateRequest.cs" />
+    <Compile Include="Core\Requests\ListTextsRequest.cs" />
     <Compile Include="Core\Requests\RelatedTextBase.cs" />
     <Compile Include="Core\Requests\RequestBase.cs" />
     <Compile Include="Core\Requests\TagRequest.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Core\Responses\ErrorResponse.cs" />
     <Compile Include="Core\Responses\GroupsResponse.cs" />
     <Compile Include="Core\Responses\GroupTextsResponse.cs" />
+    <Compile Include="Core\Responses\ListTextsResponse.cs" />
     <Compile Include="Core\Responses\RelatedGroupsResponse.cs" />
     <Compile Include="Core\Responses\RelatedTextsResponse.cs" />
     <Compile Include="Core\Responses\ResponseBase.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="EventArgs\TagCompletedEventArgs.cs" />
     <Compile Include="EventArgs\TagsCompletedEventArgs.cs" />
     <Compile Include="EventArgs\TextCompletedEventArgs.cs" />
+    <Compile Include="EventArgs\CollectionListTextsCompletedEventArgs.cs" />
     <Compile Include="Managers\CollectionManager.Async.cs" />
     <Compile Include="Managers\CollectionManager.cs" />
     <Compile Include="Managers\GroupManager.Async.cs" />

@@ -92,6 +92,28 @@ namespace Saplo.Managers
 		}
 
 		/// <summary>
+		/// Lists all texts that belongs to this collection.
+		/// </summary>
+		/// <param name="collectionId">id of collection</param>
+		/// <returns></returns>
+		public Text[] ListTexts(int collectionId, int? limit = null, int? minTextId = null, int? maxTextId = null)
+		{
+			var reqObj = new RequestBase<ListTextsRequest>
+			             {
+			             	Method = "collection.listTexts",
+			             	Parameters = new ListTextsRequest
+			             	             {
+			             	             	CollectionID = collectionId,
+			             	             	Limit = limit.GetValueOrDefault(),
+			             	             	MinTextID = minTextId.GetValueOrDefault(),
+			             	             	MaxTextID = maxTextId.GetValueOrDefault()
+			             	             }
+			             };
+
+			return CallSaploApi<ListTextsResponse>(reqObj).Texts;
+		}
+
+		/// <summary>
 		///   Resets an collection.
 		/// </summary>
 		/// <param name="collectionId"> id of collection to reset </param>

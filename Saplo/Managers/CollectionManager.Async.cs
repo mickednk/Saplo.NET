@@ -10,6 +10,8 @@ namespace Saplo.Managers
 	{
 		#region Delegates
 
+		public delegate void CollectionListTextsCompletedEventHandler(object sender, CollectionListTextsCompletedEventArgs e);
+
 		public delegate void CreateCollectionCompletedEventHandler(object sender, CollectionCompletedEventArgs e);
 
 		public delegate void DeleteCompletedEventHandler(object sender, SuccessMethodCompletedEventArgs e);
@@ -27,7 +29,7 @@ namespace Saplo.Managers
 		private readonly HybridDictionary _userStateToLifetime = new HybridDictionary();
 
 		/// <summary>
-		///   Create a new collection.
+		/// 	Create a new collection.
 		/// </summary>
 		/// <param name="name"> name of the collection </param>
 		/// <param name="language"> language to use in the collection, (only swedish and english are supported) </param>
@@ -58,7 +60,7 @@ namespace Saplo.Managers
 		}
 
 		/// <summary>
-		///   Deletes collection from account.
+		/// 	Deletes collection from account.
 		/// </summary>
 		/// <param name="collectionId"> id of collection to remove </param>
 		/// <param name="taskId"> unique identifier this operation </param>
@@ -88,7 +90,7 @@ namespace Saplo.Managers
 		}
 
 		/// <summary>
-		///   Get specfic Collection.
+		/// 	Get specfic Collection.
 		/// </summary>
 		/// <param name="collectionId"> ID of collection to fetch </param>
 		/// <param name="taskId"> unique identifier for this operation </param>
@@ -116,7 +118,7 @@ namespace Saplo.Managers
 		}
 
 		/// <summary>
-		///   Lists all Collection connect to this account.
+		/// 	Lists all Collection connect to this account.
 		/// </summary>
 		/// <param name="taskId"> unique identifier for this operation </param>
 		/// <returns> </returns>
@@ -143,8 +145,31 @@ namespace Saplo.Managers
 				}).BeginInvoke(asyncOp, null, null);
 		}
 
+		public void ListTextsAsync(int collectionId, int limit, int minTextId, int maxTextId, Guid taskId)
+		{
+			var asyncOp = CreateOperationFromTaskId(taskId);
+			new Action<int, int, int, int, AsyncOperation>(
+				(collId, lmt, minId, maxId, operation) =>
+				{
+					Text[] texts = null;
+					Exception exception = null;
+					try
+					{
+						texts = ListTexts(collId, lmt, minId, maxId);
+					}
+					catch (Exception ex)
+					{
+						exception = ex;
+					}
+
+					RemoveOperation(operation);
+					asyncOp.PostOperationCompleted(state => OnListTextsCompleted(state as CollectionListTextsCompletedEventArgs),
+					                               new CollectionListTextsCompletedEventArgs(texts, exception, false, operation.UserSuppliedState));
+				}).BeginInvoke(collectionId, limit, minTextId, maxTextId, asyncOp, null, null);
+		}
+
 		/// <summary>
-		///   Resets an collection.
+		/// 	Resets an collection.
 		/// </summary>
 		/// <param name="collectionId"> id of collection to reset </param>
 		/// <param name="taskId"> unique identifier for this operation </param>
@@ -173,7 +198,7 @@ namespace Saplo.Managers
 		}
 
 		/// <summary>
-		///   Updates the information on an collection.
+		/// 	Updates the information on an collection.
 		/// </summary>
 		/// <param name="collection"> collection information to update. </param>
 		/// <param name="taskId"> unique identifier for this operation </param>
@@ -217,6 +242,11 @@ namespace Saplo.Managers
 		protected virtual void OnListCompleted(CollectionsCompletedEventArgs e)
 		{
 			if (ListCompleted != null) ListCompleted(this, e);
+		}
+
+		protected virtual void OnListTextsCompleted(CollectionListTextsCompletedEventArgs e)
+		{
+			if (CollectionListTextsCompleted != null) CollectionListTextsCompleted(this, e);
 		}
 
 		protected virtual void OnResetCompleted(CollectionCompletedEventArgs e)
@@ -265,5 +295,6 @@ namespace Saplo.Managers
 		public event CreateCollectionCompletedEventHandler CreateCompleted;
 		public event GetCollectionCompletedEventHandler GetCompleted;
 		public event UpdateCompletedEventHandler UpdateCompleted;
+		public event CollectionListTextsCompletedEventHandler CollectionListTextsCompleted;
 	}
 }
